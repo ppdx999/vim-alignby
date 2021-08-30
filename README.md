@@ -1,5 +1,5 @@
 # vim-alignby 
-vim-alignby is a vim plug-in which align text date neatly.
+vim-alignby is a vim plug-in which align text data.
 
 ![screenshot](doc/screenshot.gif)
 
@@ -48,6 +48,7 @@ aaaa |aa |aaaa |
 2. press `<leader>==`
 3. then below things happen.
 
+before
 ```
 5 = 2+3 = 1+1+3
 8 = 2+2+1+1 = 1+1+6
