@@ -1,12 +1,15 @@
 " Count 3byte-char as two 
 function! s:strlenX(text)
-	let total_byte = strlen(a:text)
-	let n_total = strlen(substitute(a:text, '.', 'x','g'))
-	if (total_byte == n_total)
-		return n_total
+	let single_multi_total = strlen(a:text)
+	if &ambiwidth !=# 'double'
+		return single_multi_total
+	endif
+	let total_by_byte = strlen(substitute(a:text, '.', 'x','g'))
+	if (single_multi_total == total_by_byte)
+		return total_by_byte
 	else
-		let n_multi_byte = (total_byte - n_total) / 2
-		let n_single_byte = total_byte - (n_multi_byte * 3)
+		let n_multi_byte = (single_multi_total - total_by_byte) / 2
+		let n_single_byte = single_multi_total - (n_multi_byte * 3)
 		return n_single_byte + (n_multi_byte * 2)
 	endif
 endfunction
