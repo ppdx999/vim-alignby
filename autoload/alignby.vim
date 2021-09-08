@@ -53,7 +53,6 @@ function! alignby#Main(mode, char)
 				let cellLengths[j] = nStr
 			endif
 		endfor
-
 	endfor
 
 	" Adds whitespace based on the 'cellLength' value. And write it to buffer. 
@@ -65,7 +64,7 @@ function! alignby#Main(mode, char)
 
 		for j in range(0, nStrList-1)
 			let nAddSpace = cellLengths[j] - s:strlenX(strList[j]) 
-			for k in range(0, nAddSpace)
+			for k in range(0, nAddSpace-1)
 				let strList[j] .= ' '
 			endfor
 		endfor
